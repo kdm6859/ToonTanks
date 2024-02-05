@@ -14,6 +14,6 @@
 #define BlueprintReadWrite BlueprintReadWrite
 #define BlueprintReadOnly BlueprintReadOnly
 #define AllowPrivateAccess AllowPrivateAccess
-
+#define BlueprintImplementableEvent BlueprintImplementableEvent
 
 #endif

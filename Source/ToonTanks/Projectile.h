@@ -8,12 +8,15 @@
 #include "GameFramework/Actor.h"
 #include "Projectile.generated.h"
 
+//전방선언은 위에 한번만 써도 적용됨
+class USoundBase;
+
 UCLASS()
 class TOONTANKS_API AProjectile : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AProjectile();
 
@@ -36,7 +39,22 @@ private:
 	UPROPERTY(EditAnywhere)
 	float Damage = 50.f;
 
-public:	
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class UParticleSystem* HitPaticles;
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat")
+	class UParticleSystemComponent* TrailParticles;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	class USoundBase* LaunchSound;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	USoundBase* HitSound;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	TSubclassOf<class UCameraShakeBase> HitCameraShakeClass;
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
